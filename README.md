@@ -4,7 +4,7 @@ This is an example Go project which uses [gb](http://getgb.io/). It includes
 internal packages, external third-party vendorized packages and travis
 integration to show all possible use cases.
 
-Download it and use it to play with the the [gb](http://getgb.io/) tool.
+Download it and use it to play with the [gb](http://getgb.io/) tool.
 
 # Usage
 
@@ -34,7 +34,7 @@ Examine the directory and see how the source code is laid out in the `src` folde
 * We have two packages under `src/`:
 	1. `util` is package, which can be imported by others. It uses the third party package `github.com/fatih/camelcase`
     2. `cmdname` is a `main` package that can be executed once build. It imports `util`.
-* `util` is using a third party package, we fethched and stored it under the `vendor/` directory. This is done with `gb fetch github.com/fatih/camelcase`
+* `util` is using a third party package, we fetched and stored it under the `vendor/` directory. This is done with `gb fetch github.com/fatih/camelcase`
 * `gb` put main packages under the `bin/` directory once you build the project with `gb build`
 * `travis` is used for CI integration. Check the `.travis.yml` file out how to integrate `gb` into other CI services.
 
