@@ -1,0 +1,12 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/fatih/camelcase",
+			"repository": "https://github.com/fatih/camelcase",
+			"revision": "332844f2fb0193cce955f4687646abbdcc43ceeb",
+			"branch": "master",
+			"path": ""
+		}
+	]
+}
