@@ -32,9 +32,10 @@ That's it!
 
 # Details
 
-Examine the directory and see how the source code is laid out in the `src` folder. Currently it's for Mac OSX it's in the form of:
+Examine the directory and see how the source code is laid out in the `src`
+folder. Currently, after `gb build all` it's for Mac OSX it's in the form of:
 
-```
+```bash
 ~/Code/gb-example (master) tree
 .
 ├── LICENSE.md
@@ -49,9 +50,8 @@ Examine the directory and see how the source code is laid out in the `src` folde
 │           │       └── camelcase.a
 │           └── util.a
 ├── src
-│   ├── cmd
-│   │   └── cmdname
-│   │       └── main.go
+│   ├── cmdname
+│   │   └── main.go
 │   └── util
 │       ├── util.go
 │       └── util_test.go
