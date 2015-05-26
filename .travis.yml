@@ -6,3 +6,4 @@ install:
   - go get github.com/constabulary/gb/...
 script:
   - gb build all
+  - gb test all
