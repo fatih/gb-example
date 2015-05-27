@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"util"
+
+	"github.com/fatih/gb-example/util"
 )
 
 func main() {

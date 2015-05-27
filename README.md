@@ -17,11 +17,13 @@ To build the project with `gb`
 ```sh
 gb build all
 ```
+
 Execute the newly build command:
 
 ```sh
 $ ./bin/cmdname
 ```
+
 To run the tests:
 
 ```sh
@@ -33,7 +35,7 @@ That's it!
 # Details
 
 Examine the directory and see how the source code is laid out in the `src`
-folder. Currently, after `gb build all` it's for Mac OSX it's in the form of:
+folder. Currently, after `gb build all` for Mac OSX it's in the form of:
 
 ```bash
 ~/Code/gb-example (master) tree
@@ -47,14 +49,22 @@ folder. Currently, after `gb build all` it's for Mac OSX it's in the form of:
 │       └── amd64
 │           ├── github.com
 │           │   └── fatih
-│           │       └── camelcase.a
+│           │       ├── camelcase.a
+│           │       └── gb-example
+│           │           └── util.a
+│           ├── notgood.a
 │           └── util.a
 ├── src
-│   ├── cmdname
-│   │   └── main.go
-│   └── util
-│       ├── util.go
-│       └── util_test.go
+│   ├── github.com
+│   │   └── fatih
+│   │       └── gb-example
+│   │           ├── cmdname
+│   │           │   └── main.go
+│   │           └── util
+│   │               ├── util.go
+│   │               └── util_test.go
+│   └── notgood
+│       └── notgood.go
 └── vendor
     ├── manifest
     └── src
@@ -73,8 +83,10 @@ folder. Currently, after `gb build all` it's for Mac OSX it's in the form of:
     2. `cmdname` is a `main` package that can be executed once build. It imports `util`.
 * `util` is using a third party package, we fetched and stored it under the `vendor/` directory. This is done with `gb fetch github.com/fatih/camelcase`.
 * `gb` put main packages under the `bin/` directory once you build the project with `gb build`
-* `gb test all` runs the tests for all packages under `src/`. You'll see `testing: warning: no tests to run` because there are not tests under `src/cmdname`.
-* `travis` is used for CI integration. Check the `.travis.yml` file out how to integrate `gb` into other CI services.
+* We run all tests with `gb test all`, which runs the tests for all packages under `src/`. 
+* Packages should be in Go style and have proper layout. Here we use `github.com/fatih/gb-example` folder and all our packages are inside that folder. This is also handy, as you can just copy the folder to a `$GOPATH` and it'll compile if you have the necessary dependencies.
+* We don't recommended to have stdlib style packages, such as the example `notgood` package.
+* We use `travis` for CI integration. Check the `.travis.yml` file out how to integrate `gb` into other CI services.
 
 # Contribute
 
