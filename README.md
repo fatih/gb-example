@@ -51,7 +51,7 @@ $ tree
 │           │   └── fatih
 │           │       ├── camelcase.a
 │           │       └── gb-example
-│           │           └── util.a
+│           │           └── snakecase.a
 │           └── notgood.a
 ├── src
 │   ├── github.com
@@ -59,9 +59,9 @@ $ tree
 │   │       └── gb-example
 │   │           ├── cmdname
 │   │           │   └── main.go
-│   │           └── util
-│   │               ├── util.go
-│   │               └── util_test.go
+│   │           └── snakecase
+│   │               ├── snakecase.go
+│   │               └── snakecase_test.go
 │   └── notgood
 │       └── notgood.go
 └── vendor
@@ -81,11 +81,11 @@ $ tree
   `github.com/fatih/gb-example` folder and all our packages are inside that
   folder. 
 * We have two packages under `src/github.com/fatih/gb-example/`:
-	1. `util` is package, which can be imported by others. It uses the third
+	1. `snakecase` is package, which can be imported by others. It uses the third
 	   party package `github.com/fatih/camelcase`
 	2. `cmdname` is a `main` package that can be executed once build. It
-	   imports `util`.
-* `util` is using a third party package, we fetched and stored it under the
+	   imports `snakecase`.
+* `snakecase` is using a third party package, we fetched and stored it under the
   `vendor/` directory. This is done with `gb fetch github.com/fatih/camelcase`.
 * vendor directory doesn't need the `manifest` file. It's up to you have you
   store the dependencies. You can even left it out and have virtual file system
