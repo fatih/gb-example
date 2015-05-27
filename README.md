@@ -102,6 +102,13 @@ $ tree
   folder `src/github.com/gb-example/fatih` to a `$GOPATH` and it'll compile if
   you have the necessary (and correct) dependencies in your `$GOPATH`.
 
+# Questions/Concerns
+
+* The path `src/github.com/fatih/gb-example` is causing to appeare the path twice because it
+  changes the URL path into `https://github.com/fatih/gb-example/tree/master/src/github.com/fatih/gb-example`.
+  This is very long and not pleasant to the eyes. A solution would be putting in
+  the form of `src/gb-example`, so the code can import in the form of `import "gb-example/snakecase"`.
+
 # Contribute
 
 `gb` is under constant development. Please feel free to contribute to fix or
