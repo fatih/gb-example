@@ -38,7 +38,7 @@ Examine the directory and see how the source code is laid out in the `src`
 folder. Currently, after `gb build all` for Mac OSX it's in the form of:
 
 ```bash
-~/Code/gb-example (master) tree
+$ tree
 .
 ├── LICENSE.md
 ├── README.md
@@ -52,8 +52,7 @@ folder. Currently, after `gb build all` for Mac OSX it's in the form of:
 │           │       ├── camelcase.a
 │           │       └── gb-example
 │           │           └── util.a
-│           ├── notgood.a
-│           └── util.a
+│           └── notgood.a
 ├── src
 │   ├── github.com
 │   │   └── fatih
