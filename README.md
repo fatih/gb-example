@@ -77,15 +77,30 @@ $ tree
 ```
 
 * Your code is always under `src/`. The code should be organized in packages. 
-* We have two packages under `src/`:
-	1. `util` is package, which can be imported by others. It uses the third party package `github.com/fatih/camelcase`
-    2. `cmdname` is a `main` package that can be executed once build. It imports `util`.
-* `util` is using a third party package, we fetched and stored it under the `vendor/` directory. This is done with `gb fetch github.com/fatih/camelcase`.
-* `gb` put main packages under the `bin/` directory once you build the project with `gb build`
-* We run all tests with `gb test all`, which runs the tests for all packages under `src/`. 
-* Packages should be in Go style and have proper layout. Here we use `github.com/fatih/gb-example` folder and all our packages are inside that folder. This is also handy, as you can just copy the folder to a `$GOPATH` and it'll compile if you have the necessary dependencies.
-* We don't recommended to have stdlib style packages, such as the example `notgood` package.
-* We use `travis` for CI integration. Check the `.travis.yml` file out how to integrate `gb` into other CI services.
+* Packages should be in Go style and have proper layout. Here we use
+  `github.com/fatih/gb-example` folder and all our packages are inside that
+  folder. 
+* We have two packages under `src/github.com/fatih/gb-example/`:
+	1. `util` is package, which can be imported by others. It uses the third
+	   party package `github.com/fatih/camelcase`
+	2. `cmdname` is a `main` package that can be executed once build. It
+	   imports `util`.
+* `util` is using a third party package, we fetched and stored it under the
+  `vendor/` directory. This is done with `gb fetch github.com/fatih/camelcase`.
+* vendor directory doesn't need the `manifest` file. It's up to you have you
+  store the dependencies. You can even left it out and have virtual file system
+  attached to it on your local server. It doesn't matter for gb.
+* Main packages are put under the `bin/` directory once you build the project
+  with `gb build`
+* We run all tests with `gb test all`, which runs the tests for all packages
+  under `src/`. 
+* We don't recommended to have stdlib style packages, such as the example
+  `notgood` package.
+* We use `travis` for CI integration. Check the `.travis.yml` file out how to
+  integrate `gb` into other CI services.
+* Having a proper layout under `src/` is also handy, as you can just copy the
+  folder `src/github.com/gb-example/fatih` to a `$GOPATH` and it'll compile if
+  you have the necessary (and correct) dependencies in your `$GOPATH`.
 
 # Contribute
 
