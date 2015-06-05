@@ -1,11 +1,11 @@
 # gb-example [![Build Status](http://img.shields.io/travis/fatih/gb-example.svg?style=flat-square)](https://travis-ci.org/fatih/gb-example)
 
 This is an example Go project which uses [gb](http://getgb.io/). It includes
-internal packages, external third-party vendorized packages and travis
+internal packages, external third-party vendorized packages, tests and travis
 integration to show all possible use cases.
 
-Download it and use it to play with the [gb](http://getgb.io/) tool.
-Instructions to install `gb` is here: http://getgb.io/docs/install/
+This project simply builds a new CLI app, called `convert` which converts a
+camel case word into a snake case word. Example: `GbProject` -> `gb_project`
 
 # Usage
 
