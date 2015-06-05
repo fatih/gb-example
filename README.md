@@ -52,22 +52,20 @@ $ tree
 ├── pkg
 │   └── darwin
 │       └── amd64
+│           ├── gb-example
+│           │   └── snakecase.a
 │           ├── github.com
 │           │   └── fatih
-│           │       ├── camelcase.a
-│           │       └── gb-example
-│           │           └── snakecase.a
+│           │       └── camelcase.a
 │           └── notgood.a
 ├── src
 │   ├── cmd
 │   │   └── convert
 │   │       └── main.go
-│   ├── github.com
-│   │   └── fatih
-│   │       └── gb-example
-│   │           └── snakecase
-│   │               ├── snakecase.go
-│   │               └── snakecase_test.go
+│   ├── gb-example
+│   │   └── snakecase
+│   │       ├── snakecase.go
+│   │       └── snakecase_test.go
 │   └── notgood
 │       └── notgood.go
 └── vendor
@@ -83,10 +81,8 @@ $ tree
 ```
 
 * Your code is always under `src/`. The code should be organized in packages. 
-* Packages should be in Go style and have proper layout. Here we use
-  `github.com/fatih/gb-example` folder and all our packages are inside that
-  folder. 
-* We have three packages under `src/github.com/fatih/gb-example/`:
+* Packages should be in Go style and have proper layout.
+* We have three packages under `src/`:
 	1. `snakecase` is package, which can be imported by others. It uses the third
 	   party package `github.com/fatih/camelcase`
 	2. `convert` is a `main` package that can be executed once build. It
@@ -95,7 +91,7 @@ $ tree
 	   a stdlib style package and is not recommended.
 * `snakecase` is using a third party package, we fetched and stored it under the
   `vendor/` directory. This is done with `gb fetch github.com/fatih/camelcase`.
-* vendor directory doesn't need the `manifest` file. It's up to you have you
+* vendor directory **doesn't need** the `manifest` file. It's up to you have you
   store the dependencies. You can even left it out and have virtual file system
   attached to it on your local server. It doesn't matter for gb.
 * Main packages are put under the `bin/` directory once you build the project
@@ -104,16 +100,15 @@ $ tree
   `src/`. 
 * We use `travis` for CI integration. Check the `.travis.yml` file out how to
   integrate `gb` into other CI services.
-* Having a proper layout under `src/` is also handy, as you can just copy the
-  folder `src/github.com/gb-example/fatih` to a `$GOPATH` and it'll compile if
-  you have the necessary (and correct) dependencies in your `$GOPATH`.
 
 # Questions/Concerns
 
-* The path `src/github.com/fatih/gb-example` is causing to appeare the path twice because it
-  changes the URL path into `https://github.com/fatih/gb-example/tree/master/src/github.com/fatih/gb-example`.
-  This is very long and not pleasant to the eyes. A solution would be putting in
-  the form of `src/gb-example`, so the code can import in the form of `import "gb-example/snakecase"`.
+* The path `src/github.com/fatih/gb-example` is causing to appeare the path
+  twice because it changes the URL path into
+  `https://github.com/fatih/gb-example/tree/master/src/github.com/fatih/gb-example`.
+  This is very long and not pleasant to the eyes. The solution is to put it the
+  form of `src/gb-example`, so the code can import in the form of `import
+  "gb-example/snakecase"`.
 
 # Contribute
 

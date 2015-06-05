@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/fatih/gb-example/snakecase"
+	"gb-example/snakecase"
 )
 
 func main() {
