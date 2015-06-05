@@ -4,7 +4,7 @@ import "testing"
 
 func TestConvert(t *testing.T) {
 	s := "GbRocks"
-	want := "Gb_Rocks"
+	want := "gb_rocks"
 	r := Convert(s)
 
 	if want != r {
