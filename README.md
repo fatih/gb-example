@@ -15,19 +15,20 @@ git clone https://github.com/fatih/gb-example.git
 To build the project with `gb`
 
 ```sh
-gb build all
+$ gb build
 ```
 
 Execute the newly build command:
 
 ```sh
-$ ./bin/cmdname
+$ ./bin/convert gbExample
+gb_example
 ```
 
 To run the tests:
 
 ```sh
-gb test all
+$ gb test
 ```
 
 That's it! 
@@ -35,7 +36,7 @@ That's it!
 # Details
 
 Examine the directory and see how the source code is laid out in the `src`
-folder. Currently, after `gb build all` for Mac OSX it's in the form of:
+folder. Currently, after `gb build` for Mac OSX it's in the form of:
 
 ```bash
 $ tree
@@ -43,7 +44,7 @@ $ tree
 ├── LICENSE.md
 ├── README.md
 ├── bin
-│   └── cmdname
+│   └── convert
 ├── pkg
 │   └── darwin
 │       └── amd64
@@ -54,11 +55,12 @@ $ tree
 │           │           └── snakecase.a
 │           └── notgood.a
 ├── src
+│   ├── cmd
+│   │   └── convert
+│   │       └── main.go
 │   ├── github.com
 │   │   └── fatih
 │   │       └── gb-example
-│   │           ├── cmdname
-│   │           │   └── main.go
 │   │           └── snakecase
 │   │               ├── snakecase.go
 │   │               └── snakecase_test.go
@@ -80,11 +82,13 @@ $ tree
 * Packages should be in Go style and have proper layout. Here we use
   `github.com/fatih/gb-example` folder and all our packages are inside that
   folder. 
-* We have two packages under `src/github.com/fatih/gb-example/`:
+* We have three packages under `src/github.com/fatih/gb-example/`:
 	1. `snakecase` is package, which can be imported by others. It uses the third
 	   party package `github.com/fatih/camelcase`
-	2. `cmdname` is a `main` package that can be executed once build. It
+	2. `convert` is a `main` package that can be executed once build. It
 	   imports `snakecase`.
+	3. `notgood` is a package that can be imported as `import "notgood"`. It's
+	   a stdlib style package and is not recommended.
 * `snakecase` is using a third party package, we fetched and stored it under the
   `vendor/` directory. This is done with `gb fetch github.com/fatih/camelcase`.
 * vendor directory doesn't need the `manifest` file. It's up to you have you
@@ -92,10 +96,8 @@ $ tree
   attached to it on your local server. It doesn't matter for gb.
 * Main packages are put under the `bin/` directory once you build the project
   with `gb build`
-* We run all tests with `gb test all`, which runs the tests for all packages
-  under `src/`. 
-* We don't recommended to have stdlib style packages, such as the example
-  `notgood` package.
+* We run all tests with `gb test`, which runs the tests for all packages under
+  `src/`. 
 * We use `travis` for CI integration. Check the `.travis.yml` file out how to
   integrate `gb` into other CI services.
 * Having a proper layout under `src/` is also handy, as you can just copy the

@@ -5,5 +5,5 @@ go:
 install:
   - go get github.com/constabulary/gb/...
 script:
-  - gb build all
-  - gb test all
+  - gb build
+  - gb test
