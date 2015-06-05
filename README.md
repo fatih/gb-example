@@ -5,29 +5,33 @@ internal packages, external third-party vendorized packages and travis
 integration to show all possible use cases.
 
 Download it and use it to play with the [gb](http://getgb.io/) tool.
+Instructions to install `gb` is here: http://getgb.io/docs/install/
 
 # Usage
 
-```sh
+Fetch the project to a directory (doesn't need to be under `GOPATH` at all!)
+
+```
 git clone https://github.com/fatih/gb-example.git
+cd gb-example
 ```
 
-To build the project with `gb`
+To build the project:
 
-```sh
+```
 $ gb build
 ```
 
 Execute the newly build command:
 
-```sh
+```
 $ ./bin/convert gbExample
 gb_example
 ```
 
 To run the tests:
 
-```sh
+```
 $ gb test
 ```
 
